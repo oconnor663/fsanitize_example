@@ -1,3 +1,6 @@
 fn main() {
-    cc::Build::new().file("src/oops.c").compile("oops");
+    let mut build = cc::Build::new();
+    build.file("src/oops.c");
+    build.flag("-fsanitize=address,undefined");
+    build.compile("oops");
 }
